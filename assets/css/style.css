@@ -1,13 +1,52 @@
+* {
+	color: white;
+ }
+img {
+	width: 100%;
+}
 body {
-	background-image: url("../images/tree_of_life.jpg");
+	background-image: url('../images/space.jpg');
+	background-size: 100%;
 }
-
-.card {
-	margin-top: .5em;
-	padding: 2px;
-	height: 120px;
+.masthead-brand {
+	color: white;
+	font-size: 2em;
 }
-
-.card-title {
-	padding: 5px;
+.image {
+	width:12%;
+	float:left;
+	margin-left:30px;
+}
+p{
+	text-align: center;
+}
+h3{
+	text-align: center;
+}
+#chr{
+	width:100%;
+}
+#chr1{
+	color:green;
+	font-weight:bold;
+}
+.panel-heading{
+	font-size:2em;
+}
+.panel{
+	width:100%;
+}
+.hpdisplay{
+	font-size: 2em;
+}
+#enemies{
+	color:yellow;
+	font-weight:bold;
+}
+#defender{
+	color:red;
+	font-weight:bold;
+}
+.panel-body {
+	background-color:transparent;
 }

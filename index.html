@@ -6,63 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  	<style>
-  		* {
-  			color: white;
-  		}
-  		img {
-  			width: 100%;
-  		}
-  		body {
-  			background-image: url('assets/images/space.jpg');
-  			background-size: 100%;
-  		}
-  		.masthead-brand {
-  			color: white;
-  			font-size: 2em;
-  		}
-  		.image {
-			width:12%;
-			float:left;
-			margin-left:30px;
-  		}
-  		p{
-  			text-align: center;
-  		}
-  		h3{
-  			text-align: center;
-  		}
-  		#chr{
-  			width:100%;
-  		}
-  		#chr1{
-  			color:green;
-  			font-weight:bold;
-  		}
-		.panel-heading{
-			font-size:2em;
-		}
-		.panel{
-			width:100%;
-		}
-		.hpdisplay{
-			font-size: 2em;
-		}
-		#enemies{
-			color:yellow;
-			font-weight:bold;
-		}
-		#defender{
-			color:red;
-			font-weight:bold;
-		}
-		.panel-body {
-			background-color:transparent;
-
-		}
-  	</style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="assets/javascripts/java.js"></script>
+    
 </head>
 <body>
 	<div class="container">
@@ -136,77 +83,8 @@
 			<source src="assets/images/theme.mp3" type="audio/mpeg">
 		</audio>
 	</div>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-  <script text="text/javascript">
-  //global variables
-  var playerVar=[];
-  var enemiesVar=[];
-  var defenderVar=[];
-  var playerHp;
-  var defenderHp;
 
 
-  	$(document).ready(function(){
-  		///when images are clicked
-  		$(".image").on('click', function() {
-  			//This if statement checks to see whether the player character has been choosed or not.
-  			if (playerVar.length===0) {
-  				playerVar.push($(this))
-  				$(".enemies").html($(".image"));
-  				$(".yourcharacter").html($(this));
-
-  				playerHp=playerVar[0].attr('hp');
-  				playerAp=playerVar[0].attr('ap');
-  				$(".yourcharacter").find("p").html(playerHp);
-
-  			//This statement checks if the player char has been choosed and the defender has not been choosed and also makes sure that player is not picking the player character as enemies.
-  			}else if (playerVar.length===1&&defenderVar.length===0&&playerVar[0].attr('id')!==$(this).attr('id')){
-  				
-  				$(".defender").html($(this));
-  				defenderVar.push($(this));
-  				defenderHp=defenderVar[0].attr('hp');
-  				defenderCp=defenderVar[0].attr('cp');
-  				$(".defender").find("p").html(defenderHp);		
-  			}
-  		});
-  		//User can only click the button when the defender has been choosed.
-  		$("#atkbutton").on('click', function() {
-  			if (defenderVar.length===1&&playerHp>0){ 
-	  			defenderHp=defenderHp-playerAp;
-	  			$(".defender").find("p").html(defenderHp);
-	  			playerAp=playerAp*2;
-	  			$('.status').find('h3').html("You attacked "+defenderVar[0].attr('id')+" for "+playerAp/2+" damage.")
-	  			if (defenderHp<=0) {
-	  				defenderVar=[];
-	  				$(".defender").html("");
-	  				return alert("You have defeated the enemy. Please select the next defender!");
-	  			} 
-	  			playerHp=playerHp-defenderCp;
-	  			$(".yourcharacter").find("p").html(playerHp);
-	  			
-	  			
-	  			if (playerHp<=0){
-	  				//reset button will show
-	  				$("#resetbutton").show();
-	  				alert("You have lost. Please reset the game and try again");
-	  			}
-
-  			}
-  			$('.status').find('h3').html("You attacked "+defenderVar[0].attr('id')+" for "+playerAp/2+" damage.<br>"+defenderVar[0].attr('id')+" attacked you back for "+defenderCp+" damage.")
-
-
-  		});
-  		// this will hide the reset button
-  		$("#resetbutton").hide();
-  		//reset button will reload the page on click
-  		$("#resetbutton").on('click', function(){
-  			window.location.reload();
-  		});
-
-  	});//end of ready document
-
-  </script>
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  
 </body>
 </html>
